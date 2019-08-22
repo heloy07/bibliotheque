@@ -44,3 +44,9 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+# Front-end exclusions ####################################
+
+# Angular modules
+/web-ui/node_modules
+/web-ui/.editorconfig
