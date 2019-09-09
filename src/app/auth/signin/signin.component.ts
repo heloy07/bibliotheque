@@ -10,7 +10,7 @@ import { AuthService } from './../../services/auth.service';
 })
 export class SigninComponent implements OnInit {
 
-  signupForm: FormGroup;
+  signinForm: FormGroup;
   errorMessage: string;
 
   constructor(private formBuilder: FormBuilder,
@@ -21,17 +21,18 @@ export class SigninComponent implements OnInit {
     this.initForm();
   }
   initForm() {
-    this.signupForm = this.formBuilder.group({
+    this.signinForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.pattern(/[0-9a-zA-Z]{6,}/)]]
     });
   }
   onSubmit() {
-    const email = this.signupForm.get('email').value;
-    const password = this.signupForm.get('password').value;
+    const email = this.signinForm.get('email').value;
+    const password = this.signinForm.get('password').value;
 
-    this.authService.createNewUser(email, password).then(
+    this.authService.signInUser(email, password).then(
       () => {
+        console.log("routing to books");
         this.router.navigate(['/books']);
       },
       (error) => {

@@ -124,6 +124,12 @@
           }
         }
       }
-    }},
-  "defaultProject": "bibliotheque"
+    }
+  },
+  "defaultProject": "bibliotheque",
+  "schematics": {
+    "@schematics/angular:component": {
+      "styleext": "scss"
+    }
+  }
 }
